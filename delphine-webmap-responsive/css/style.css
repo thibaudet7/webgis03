@@ -1,0 +1,205 @@
+
+
+
+main, nav {
+    padding: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li, nav .toggle {
+    display: block;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+nav .toggle {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+} */
+
+
+
+
+/* the first map style */
+
+.first-map{
+
+    display: inline-block;
+    
+    width: 40%;
+    
+ 
+}
+
+.map1 {
+    position: relative;
+    left: 2px;
+    top:2px;
+    height:500px;
+    background-image: url('map1.png');
+    background-size: 100% 100%;
+    }
+
+  
+
+    .side-bar {
+        
+        height: 120px;
+        border: 2px solid black ;
+        margin-top: 4px;
+    
+    }
+
+.map1 .marker {
+    position: absolute;
+    z-index: 1;
+    width: 30px;
+    height: 49px;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -42px;
+    background-image: url('marker.png');
+    }
+
+
+.map1 .marker1 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 70%;
+    left: 70%;
+    margin-left: -12px;
+    margin-top: -42px;
+    background-image: url('marker1.png');
+    }
+
+    .map1 .marker2 {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        width: 30px;
+        height: 37px;
+        margin-left: -12px;
+        margin-top: -42px;
+        background-image: url('marker2.png');
+        }
+
+h3{
+margin: 4px;
+}
+
+img {
+    width: 30%;
+}
+
+td{
+    padding: 2px;
+}
+
+.area {
+    position: static;
+    width: 100px;
+    height: 40px;
+    background: rgb(0, 149, 255);
+    border: 2px solid black ; ;
+    
+    
+  }
+
+  p{
+
+    margin: 2px;
+    color: white;
+  }
+
+  
+
+
+/* the second map style */
+
+.second-map{
+display: inline-block;
+width: 55%;
+
+}
+
+.map2 {
+    display: inline-block;
+    position: relative;
+    z-index:1;
+    left: 2px;
+    top:2px;
+    height: 500px;
+    width: 90%;
+    margin-top: 0;
+    background-size: 100% 100%;
+    }
+
+    /* Break points */
+
+    @media (max-width: 300px) {
+        .first-map {
+            display: block;
+
+            width: 90%;
+        }
+
+        .map1, .map2 {
+    
+            height:300px;
+           
+            }
+
+            .second-map{
+                display: block;
+                
+                width: 100%;
+                
+                }
+
+            
+    }
+
+
+    /* Break points */
+
+    @media (max-width: 600px) {
+        .first-map {
+            display: block;
+
+            width: 85%;
+        }
+
+        .map1, .map2 {
+    
+            height:350px;
+           
+            }
+
+            .second-map{
+                display: block;
+                
+                width: 100%;
+                
+                }
+
+            
+    }

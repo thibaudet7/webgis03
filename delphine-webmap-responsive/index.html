@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web map</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="src/leaflet.css">
+    <link rel="stylesheet" href="src/plugins/L.Control.Zoomslider.css">
+    <link rel="stylesheet" href="src/plugins/L.Control.MousePosition.css">
+
+    <script src="src/leaflet-src.js"></script>
+    <script src="src/jquery-3.7.1.min.js"></script>
+    <script src="src/plugins/L.Control.Zoomslider.js"></script>
+    <script src="src/plugins/L.Control.MousePosition.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <nav>
+    <div class="toggle">Menu</div>
+    <ul>
+    <li><a href="https://www.w3schools.com/">Introduction</a></li>
+    <li><a href="https://www.w3schools.com/">About</a></li>
+    <li><a href="https://www.w3schools.com/">More Information</a></li>
+    </ul>
+    </nav>
+    </header>
+
+    <main>
+
+      <div class="first-map"> 
+
+        <div   class="map1" >
+            <div class="marker"></div>
+            <div class="marker1"></div>
+            <div class="marker2"></div>
+            <div class="area"> <p>Rectangular area</p></div>
+        </div>
+ 
+        <div class="side-bar" >
+         <h3>Legend</h3>
+ 
+         <table >
+         
+           <tr>
+             <td><img src="css/marker.png" alt="marker"> </td>
+             <td>red marker</td>
+             
+           </tr>
+           <tr>
+             <td><img src="css/marker1.png" alt="marker">  </td>
+             <td>orange marker </td>
+           </tr>
+           <tr>
+             <td><img src="css/marker2.png" alt="marker">  </td>
+             <td>green marker </td>
+           </tr>
+ 
+          </table>
+       </div>
+
+    </div>
+
+    
+    
+
+        <div  class="second-map" >
+
+    
+            <div  id="mapdiv"  class="map2" >
+              
+            </div>
+   
+        </div>  
+        
+
+           
+
+        <script type="text/javascript">
+
+            var mymap;
+            var blueIcon = L.icon({
+                iconUrl: 'icon.png',
+                //shadowUrl: 'leaf-shadow.png',
+            
+                iconSize:     [30, 70], // size of the icon
+                //shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 80], // point of the icon which will correspond to marker's location
+                //shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-3, -65] // point from which the popup should open relative to the iconAnchor
+            });
+
+            var zooMarkerPopup1 = L.popup({maxHeight:200, keepInView: true}).setContent("This is Yaoundé <img src='image/yde.jpg' >");
+            var zooMarkerPopup2 = L.popup().setContent("This is Okola <img src='image/okola.jpeg' width='50px'>");
+            var zooMarkerPopup3 = L.popup().setContent("This is Elig-Mfomo <img src='image/elig-mfomo.jpeg' width='50px'>");
+            var zooMarker;
+            var ctlZoomslider;
+            var ctlMousePosition;
+            
+           
+
+            $(document).ready(
+
+                function(){
+                    
+                    mymap = L.map('mapdiv', {center:[3.86, 11.5177], 
+                      zoom:9, zoomControl: false, attributionControl: false});
+                    lyrOSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+                    mymap.addLayer(lyrOSM);
+
+
+                    zooMarker = L.marker([3.86, 11.5177], {
+                    icon: blueIcon
+                    }).bindPopup(zooMarkerPopup1).addTo(mymap);
+
+                    zooMarker = L.marker([4.0, 11.36], {
+                        icon: blueIcon
+                        }).bindPopup(zooMarkerPopup2).addTo(mymap);
+
+                     zooMarker = L.marker([4.1, 11.39], {
+                            icon: blueIcon
+                            }).bindPopup(zooMarkerPopup3).addTo(mymap);
+
+                    //add a pan from a plugin
+                
+                    ctlZoomslider = L.control.zoomslider({position:'topright'}).addTo(mymap)
+                
+                    // add a mouse position plugin
+                
+                      ctlMousePosition= L.control.mousePosition().addTo(mymap);
+                
+                    // Add a Rectangle
+                      let bounds = [[3.26, 10.65], [3.4, 10.88]];
+                      let rect = L.rectangle(bounds, {
+                      color: "#0000ff",
+                      fill: true,
+                      weight: 2
+                      });
+                      rect.addTo(mymap)
+
+        
+    
+
+
+
+
+                }
+
+
+                
+            )
+          
+           
+        </script>
+
+
+    </main>
+    
+      
+    
+
+
+</body>
+
+
+
+
+</html>
